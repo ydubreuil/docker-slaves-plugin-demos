@@ -1,0 +1,21 @@
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+work*/
+
+# IntelliJ project files 
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# eclipse project file
+.settings
+.classpath
+.project
+build/

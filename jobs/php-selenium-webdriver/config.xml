@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.cloudbees.jenkins.plugins.containerslaves.JobBuildsContainersDefinition plugin="container-slaves@0.1-SNAPSHOT">
+      <buildHostImage>composer</buildHostImage>
+      <sideContainers>
+        <com.cloudbees.jenkins.plugins.containerslaves.SideContainerDefinition>
+          <name>selenium</name>
+          <image>selenium/standalone-firefox</image>
+        </com.cloudbees.jenkins.plugins.containerslaves.SideContainerDefinition>
+      </sideContainers>
+    </com.cloudbees.jenkins.plugins.containerslaves.JobBuildsContainersDefinition>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/DavertMik/php-webdriver-demo</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>composer install
+vendor/bin/phpunit</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.7.2"/>
+  </buildWrappers>
+</project>

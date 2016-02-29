@@ -1,2 +1,0 @@
-git: https://github.com/DavertMik/php-webdriver-demo
-side container: selenium/standalone-firefox

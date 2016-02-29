@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,7 @@ public class JavaWebDriverTest {
     @Before
     public void setUp() throws Exception {
         DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setBrowserName("firefox");
+        cap.setBrowserName(System.getProperty("browser"));
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
     }
 
